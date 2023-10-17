@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Avtoparts List</title>
+</head>
+<body>
+<h1>Список автозапчастей</h1>
+<ul>
+    {% for i in avtoparts_key %}
+    <li>
+        <img src="{{i.image.url}}" alt="">
+        <h2>{{i.title}}</h2>
+        <p>{{i.cost}}</p>
+        <a href="/avtoparts_detail/{{i.id}}">Подробнее</a>
+    </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
