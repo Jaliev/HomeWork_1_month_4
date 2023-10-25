@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Avtoparts Detail</title>
-</head>
-<body>
-<h1>{{avtoparts_id.title}}</h1>
-<img src="{{avtoparts_id.image.url}}" alt="">
-<p>{{avtoparts_id.cost}}</p>
-<p>{{avtoparts_id.Email}}</p>
-<p>{{avtoparts_id.tel_number}}</p>
-<p>{{avtoparts_id.car_brand}}</p>
-<p>{{avtoparts_id.year_of_release}}</p>
-<p>{{avtoparts_id.description}}</p>
+{% load static %}
+{% include 'avto_parts/header.html' %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="text-bg-primary p-3">Детальная информация товара</div>
+  <div class="block-box">
+    <div class="card" style="width: 18rem;">
+      <img src="{{avtoparts_id.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="title-detail">{{avtoparts_id.title}}</h5>
+        <p class="card-text">{{avtoparts_id.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Цена: {{avtoparts_id.cost}} сом</li>
+        <li class="list-group-item">Почта: {{avtoparts_id.Email}}</li>
+        <li class="list-group-item">Тел: {{avtoparts_id.tel_number}}</li>
+        <li class="list-group-item">Модель автомобиля: {{avtoparts_id.car_brand}}</li>
+        <li class="list-group-item">Год выпуска: {{avtoparts_id.year_of_release}}</li>
+      </ul>
 <iframe src="{{avtoparts_id.review_of_the_car}}" frameborder="0"></iframe>
 <iframe src="{{avtoparts_id.review_of_auto_parts}}" frameborder="0"></iframe>
+  </div>
+</div>
+<div class="button-style">
+<button class="btn btn-outline-primary"><a href="/avtoparts_detail/{{avtoparts_id.id}}/update/">Изменить</a></button>
+<button class="btn btn-outline-danger"><a href="/avtoparts_detail/{{avtoparts_id.id}}/delete/">Удалить</a></button>
+</div>
 <p>{{avtoparts_id.created_at}}</p>
-<button><a href="/avtoparts_detail/{{ avtoparts_id.id }}/delete/">Удалить</a></button>
-<button><a href="/avtoparts_detail/{{ avtoparts_id.id }}/update/">Изменить</a></button>
-</body>
-</html>
+{% include 'avto_parts/footer.html' %}

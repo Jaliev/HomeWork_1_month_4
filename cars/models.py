@@ -4,7 +4,7 @@ class Post(models.Model):
     title = models.CharField(max_length=100)
     image = models.ImageField(upload_to='')
     description = models.TextField()
-    cost = models.TextField()
+    cost = models.PositiveIntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>CreateProduct</title>
-</head>
-<body>
-<form action="/create_product/" method="post" enctype="multipart/form-data">
+{% include 'avto_parts/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<form action="/create_product/" method="post" enctype="multipart/form-data" class="ui-form">
+<h3>Заполните поля</h3>
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Сохранить</button>
-    <button type="reset">Отмена</button>
+<div class="form-row">
+<button type="submit">Сохранить</button>
+<button type="reset">Отмена</button>
+</div>
 </form>
-</body>
-</html>
+
+{% include 'avto_parts/footer.html' %}

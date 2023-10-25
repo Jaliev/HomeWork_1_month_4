@@ -28,7 +28,7 @@ class AutoParts(models.Model):
     year_of_release = models.CharField('Выберите год выпуска', max_length=100, choices=YEAR)
     review_of_the_car = models.URLField('Укажите видео обзор автомобиля', blank=True)
     review_of_auto_parts = models.URLField('Укажите видео обзор автозапчасти', blank=True)
-    cost = models.TextField('Укажите цену')
+    cost = models.PositiveIntegerField('Укажите цену')
     tel_number = models.IntegerField('Укажите номер телефона', null=True)
     Email = models.EmailField('Укажите вашу почту', null=True)
     created_at = models.DateTimeField(auto_now_add=True)
