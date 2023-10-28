@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="{% static 'css/style.css' %}">
 <div class="text-bg-primary p-3">Автозапчасти для внедорожников </div>
 <div class="block-box">
-{% for i in avtoparts_key %}
+{% for i in object_list %}
     <div class="card" style="width: 18rem;">
       <img src="{{i.image.url}}" class="card-img-top" alt="...">
       <div class="card-body">

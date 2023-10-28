@@ -35,3 +35,24 @@ class AutoParts(models.Model):
 
     def __str__(self):
         return f'{self.title}.{self.car_brand}'
+
+class ReviewProducts(models.Model):
+    stars = (
+        ('⭐', '⭐'),
+        ('⭐⭐', '⭐⭐'),
+        ('⭐⭐⭐', '⭐⭐⭐'),
+        ('⭐⭐⭐⭐', '⭐⭐⭐⭐'),
+        ('⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐'),
+        ('⭐⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐⭐'),
+        ('⭐⭐⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐⭐⭐'),
+        ('⭐⭐⭐⭐⭐⭐⭐⭐', '⭐⭐⭐⭐⭐⭐⭐⭐')
+    )
+    select_product = models.ForeignKey(AutoParts, on_delete=models.CASCADE, related_name='comment_product')
+    text_comment = models.TextField('Комментарий', max_length=500)
+    сondition = models.TextField('Состояние товара', blank=True)
+    rate_stars = models.CharField('Поставьте рейтинг', max_length=20, choices=stars, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.select_product} - {self.rate_stars}'
+

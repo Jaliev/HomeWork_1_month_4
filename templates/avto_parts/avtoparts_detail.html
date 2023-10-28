@@ -4,25 +4,40 @@
 <div class="text-bg-primary p-3">Детальная информация товара</div>
   <div class="block-box">
     <div class="card" style="width: 18rem;">
-      <img src="{{avtoparts_id.image.url}}" class="card-img-top" alt="...">
+      <img src="{{object.image.url}}" class="card-img-top" alt="...">
       <div class="card-body">
-        <h5 class="title-detail">{{avtoparts_id.title}}</h5>
-        <p class="card-text">{{avtoparts_id.description}}</p>
+        <h5 class="title-detail">{{object.title}}</h5>
+        <p class="card-text">{{object.description}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">Цена: {{avtoparts_id.cost}} сом</li>
-        <li class="list-group-item">Почта: {{avtoparts_id.Email}}</li>
-        <li class="list-group-item">Тел: {{avtoparts_id.tel_number}}</li>
-        <li class="list-group-item">Модель автомобиля: {{avtoparts_id.car_brand}}</li>
-        <li class="list-group-item">Год выпуска: {{avtoparts_id.year_of_release}}</li>
+        <li class="list-group-item">Цена: {{object.cost}} сом</li>
+        <li class="list-group-item">Почта: {{object.Email}}</li>
+        <li class="list-group-item">Тел: {{object.tel_number}}</li>
+        <li class="list-group-item">Модель автомобиля: {{object.car_brand}}</li>
+        <li class="list-group-item">Год выпуска: {{object.year_of_release}}</li>
       </ul>
-<iframe src="{{avtoparts_id.review_of_the_car}}" frameborder="0"></iframe>
-<iframe src="{{avtoparts_id.review_of_auto_parts}}" frameborder="0"></iframe>
+<iframe src="{{object.review_of_the_car}}" frameborder="0"></iframe>
+<iframe src="{{object.review_of_auto_parts}}" frameborder="0"></iframe>
   </div>
 </div>
 <div class="button-style">
-<button class="btn btn-outline-primary"><a href="/avtoparts_detail/{{avtoparts_id.id}}/update/">Изменить</a></button>
-<button class="btn btn-outline-danger"><a href="/avtoparts_detail/{{avtoparts_id.id}}/delete/">Удалить</a></button>
+<button class="btn btn-outline-primary"><a href="/avtoparts_detail/{{object.id}}/update/">Изменить</a></button>
+<button class="btn btn-outline-danger"><a href="/avtoparts_detail/{{object.id}}/delete/">Удалить</a></button>
 </div>
-<p>{{avtoparts_id.created_at}}</p>
+<p>{{object.created_at}}</p>
+<div class="table">
+  <table class="table table-bordered border-primary">
+    <tr>
+      <th>&nbspКомментарий&nbsp</th> <th>&nbspСостояние&nbsp</th> <th>&nbspОценка&nbsp</th> <th>&nbspДата создания&nbsp</th>
+    </tr>
+    {% for i in object.comment_product.all %}
+    <tr>
+      <th>&nbsp{{i.text_comment}}&nbsp</th> <th>&nbsp{{i.сondition}}&nbsp</th> <th>&nbsp{{i.rate_stars}}&nbsp</th> <th>&nbsp{{i.created_at}}&nbsp</th>
+    </tr>
+    {% endfor %}
+  </table>
+  <div class="add-comment">
+    <button type="button" class="btn btn-black"><a href="/review_form/">Добавить комментарий</a></button>
+  </div>
+</div>
 {% include 'avto_parts/footer.html' %}
