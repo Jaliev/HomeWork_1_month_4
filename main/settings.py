@@ -31,6 +31,7 @@ INSTALLED_APPS = [
     'cars',
     'auto_parts_store',
     'parser_app',
+    'custom_users',
 ]
 
 MIDDLEWARE = [
