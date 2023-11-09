@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring</title>
+</head>
+<body background="/static/photo/spring.jpg" marginwidth="300" marginheight="180">
+<h1>
+    <center>Весенние</center>
+</h1>
+<ol>
+    {% for i in object_list %}
+    <li>
+        <a href="/products/{{i.id}}/">
+            <h2>{{i.name}}</h2>
+        </a>
+    </li>
+    {% endfor %}
+
+</ol>
+<center>
+     <button type="submit" ><a href="/products/">Назад к списку товаров</a></button>
+</center>
+</body>
+</html>

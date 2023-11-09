@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Order</title>
+</head>
+<body background="/static/photo/fon2.jpg">
+<form action="/order/" method="post" enctype="multipart/form-data" class="ui-form">
+<h3>Заполните поля</h3>
+    {% csrf_token %}
+    {{ form.as_p }}
+<button type="submit">Оформить заказ</button>
+<button type="reset"><a href="/products/">Отмена</a></button>
+</form>
+</body>
+</html>

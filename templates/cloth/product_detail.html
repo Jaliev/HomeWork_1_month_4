@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Детальная информация о товаре</title>
+</head>
+<body background="/static/photo/fon2.jpg">
+<h1>
+    <center>{{object.name}}</center>
+</h1>
+<center>
+    <img src="{{object.image.url}}" width="300" height="300" border="2">
+    <ul>
+            {% for i in object.tags.all %}
+            <li>
+                <h3>{{i.name}}</h3>
+            </li>
+            {% endfor %}
+    </ul>
+</center>
+<button type="submit" ><a href="/products/">Назад к списку товаров</a></button>
+</body>
+</html>

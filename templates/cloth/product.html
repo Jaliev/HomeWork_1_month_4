@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+</head>
+<body background="/static/photo/fon2.jpg">
+<h1>
+    <center>Все товары</center>
+</h1>
+<ol>
+    {% for i in object_list %}
+    <li>
+        <a href="/products/{{i.id}}/">
+            <h2>{{i.name}}</h2>
+        </a>
+    </li>
+    {% endfor %}
+</ol>
+<p>
+    <a href="/summer_products/">Летние товары</a>
+</p>
+<p>
+    <a href="/autumn_products/">Осенние товары</a>
+</p>
+<p>
+    <a href="/winter_products/">Зимние товары</a>
+</p>
+<p>
+    <a href="/spring_products/">Весенние товары</a>
+</p>
+<center>
+    <button type="submit" ><a href="/order/">Заказать товар</a></button>
+</center>
+<center>
+    <div class="table">
+      <table class="table table-success table-striped" border="1">
+        <tr>
+          <th>&nbspВаши заказы:&nbsp</th> <th>&nbspДата заказа:&nbsp</th> <th>&nbspСтатус:&nbsp</th>
+        </tr>
+        {% for i in object.order_product.all %}
+        <tr>
+          <th>&nbsp{{i.name}}&nbsp</th> <th>&nbsp{{i.created_at}}&nbsp</th> <th>&nbspЗаказ уже в пути!🚚 Благодарим Вас за покупку!❤️&nbsp</th>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+</center>
+</body>
+</html>
